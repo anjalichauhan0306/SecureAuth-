@@ -1,23 +1,69 @@
-# SecureAuth 🔐
+## 🔐 Secure Authentication System
 
-Production-level authentication system with:
+This project implements a robust and secure authentication system using modern best practices to ensure user data protection and controlled access.
 
-- JWT Access + Refresh Token
-- Role-Based Access Control (Admin/User)
-- Password Hashing (bcrypt)
-- Email Verification (Nodemailer)
+### 🚀 Features
 
-## Tech Stack
+- **JWT-based Authentication**
+  - Secure token-based login system
+  - Stateless authentication for scalability
+
+- **Role-Based Authorization**
+  - Supports multiple user roles (Admin, Educator, Student)
+  - Access control based on user roles
+
+- **Password Security**
+  - Passwords are hashed using bcrypt before storing in database
+  - Prevents plain-text password storage
+
+- **Protected Routes**
+  - Backend routes are secured using middleware
+  - Only authenticated users can access protected APIs
+
+- **Token Verification Middleware**
+  - Validates JWT on every request
+  - Prevents unauthorized access
+
+- **Session Handling**
+  - Tokens stored securely on client-side
+  - Auto logout on token expiry
+
+---
+
+### ⚙️ Tech Stack Used
+
 - Node.js
-- Express
+- Express.js
 - MongoDB
+- JWT (jsonwebtoken)
+- bcrypt.js
 
-## Features
-- Secure login/signup
-- Token rotation
-- Protected routes
+---
 
-## Setup
-1. npm install
-2. Create .env file
-3. npm run dev
+### 🔄 Authentication Flow
+
+1. User registers with email & password
+2. Password is hashed using bcrypt
+3. User logs in → JWT token is generated
+4. Token is sent to client
+5. Client sends token in headers for protected routes
+6. Middleware verifies token and grants access
+
+---
+
+### 🔒 Security Best Practices Implemented
+
+- Password hashing using bcrypt
+- JWT expiration handling
+- Role-based access control (RBAC)
+- Protected API routes using middleware
+- Environment variables for sensitive data
+
+---
+
+### 📌 Example Protected Route
+
+```js
+router.get("/dashboard", verifyToken, (req, res) => {
+  res.json({ message: "Authorized access" });
+});
