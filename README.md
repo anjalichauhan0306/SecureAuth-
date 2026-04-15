@@ -38,7 +38,7 @@ This project implements a robust and secure authentication system using modern b
 - JWT (jsonwebtoken)
 - bcrypt.js
 
----
+
 
 ### 🔄 Authentication Flow
 
@@ -49,7 +49,6 @@ This project implements a robust and secure authentication system using modern b
 5. Client sends token in headers for protected routes
 6. Middleware verifies token and grants access
 
----
 
 ### 🔒 Security Best Practices Implemented
 
@@ -58,8 +57,6 @@ This project implements a robust and secure authentication system using modern b
 - Role-based access control (RBAC)
 - Protected API routes using middleware
 - Environment variables for sensitive data
-
----
 
 ### 📌 Example Protected Route
 
